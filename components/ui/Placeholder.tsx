@@ -1,10 +1,11 @@
 import { ImageIcon } from "lucide-react";
 
-type Aspect = "4/3" | "1/1";
+type Aspect = "4/3" | "1/1" | "full";
 
 const aspectClasses: Record<Aspect, string> = {
   "4/3": "aspect-[4/3]",
   "1/1": "aspect-square",
+  full: "h-full",
 };
 
 type Tone = "default" | "on-dark" | "plain";
