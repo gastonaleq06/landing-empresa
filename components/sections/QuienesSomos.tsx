@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 
 export default function QuienesSomos() {
   return (
-    <section className="bg-rojo py-16 md:py-24">
+    <section className="bg-rojo-textura py-16 md:py-24">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
           <FadeUp>

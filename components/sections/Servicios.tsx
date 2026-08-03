@@ -30,7 +30,7 @@ export default function Servicios() {
   const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
 
   return (
-    <section id="servicios" className="bg-rojo py-16 md:py-24">
+    <section id="servicios" className="bg-rojo-textura py-16 md:py-24">
       <Container>
         <FadeUp>
           <h2 className="text-center font-display text-3xl font-semibold text-white md:text-4xl">

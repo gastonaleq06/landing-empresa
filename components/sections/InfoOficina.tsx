@@ -39,7 +39,7 @@ export default function InfoOficina({ variant = "default" }: InfoOficinaProps) {
   return (
     <div
       className={`flex flex-col gap-8 ${
-        onRed ? "rounded-xl bg-rojo p-6 text-white md:p-10" : ""
+        onRed ? "rounded-xl bg-rojo-textura p-6 text-white md:p-10" : ""
       }`}
     >
       <div>

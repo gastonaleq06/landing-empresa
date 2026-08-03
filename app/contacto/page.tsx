@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-rojo py-12 md:py-16">
+      <section className="bg-rojo-textura py-12 md:py-16">
         <Container>
           <FadeUp>
             <h1 className="font-display text-4xl font-semibold text-white md:text-5xl">

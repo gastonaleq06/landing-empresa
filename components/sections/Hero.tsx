@@ -23,7 +23,9 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[80vh] items-center overflow-hidden bg-rojo"
+      className={`relative flex min-h-[80vh] items-center overflow-hidden ${
+        HERO_IMAGE ? "bg-rojo" : "bg-rojo-textura"
+      }`}
     >
       {HERO_IMAGE && (
         <Image
@@ -32,18 +34,6 @@ export default function Hero() {
           fill
           priority
           className="object-cover"
-        />
-      )}
-
-      {/* Profundidad material: textura de tejido romboidal, generada por CSS. */}
-      {!HERO_IMAGE && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent 0px, transparent 23px, white 23px, white 24px), repeating-linear-gradient(-45deg, transparent 0px, transparent 23px, white 23px, white 24px)",
-          }}
         />
       )}
 
