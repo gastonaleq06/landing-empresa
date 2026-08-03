@@ -36,9 +36,11 @@ function validar(datos: DatosSimple): ErroresSimple {
 
   if (!datos.nombre.trim()) errores.nombre = "Ingresá tu nombre completo.";
   if (!datos.email.trim()) errores.email = "Ingresá tu email.";
-  else if (!EMAIL_REGEX.test(datos.email.trim())) errores.email = "Ingresá un email válido.";
+  else if (!EMAIL_REGEX.test(datos.email.trim()))
+    errores.email = "Ingresá un email válido.";
   if (!datos.telefono.trim()) errores.telefono = "Ingresá tu teléfono.";
-  if (!datos.mensaje.trim()) errores.mensaje = "Contanos brevemente sobre tu proyecto.";
+  if (!datos.mensaje.trim())
+    errores.mensaje = "Contanos brevemente sobre tu proyecto.";
 
   return errores;
 }
@@ -84,14 +86,20 @@ export default function FormularioSimple() {
   return (
     <section className="bg-white py-16 md:py-24">
       <Container>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          <div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+          <div className="rounded-xl border border-carbon/10 border-t-4 border-t-rojo bg-white p-6 shadow-sm md:p-10">
             <h2 className="font-display text-3xl font-semibold text-carbon md:text-4xl">
-              Dejanos tus datos
+              Dejanos tus <span className="text-rojo">datos</span>
             </h2>
-            <p className="mt-2 font-sans text-gris-texto">Te respondemos a la brevedad.</p>
+            <p className="mt-2 font-sans text-gris-texto">
+              Te respondemos a la brevedad.
+            </p>
 
-            <form onSubmit={handleSubmit} noValidate className="mt-8 flex flex-col gap-5">
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="mt-8 flex flex-col gap-5"
+            >
               <Field
                 label="Nombre completo"
                 htmlFor="simple-nombre"
@@ -108,7 +116,12 @@ export default function FormularioSimple() {
               </Field>
 
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <Field label="Email" htmlFor="simple-email" required error={errores.email}>
+                <Field
+                  label="Email"
+                  htmlFor="simple-email"
+                  required
+                  error={errores.email}
+                >
                   <TextInput
                     id="simple-email"
                     name="email"
@@ -172,14 +185,22 @@ export default function FormularioSimple() {
                 <Button
                   variant="outline"
                   href={buildWhatsAppUrl(whatsappVentas)}
-                  icon={<MessageCircle size={20} aria-hidden="true" />}
+                  icon={
+                    <MessageCircle
+                      size={20}
+                      className="text-whatsapp"
+                      aria-hidden="true"
+                    />
+                  }
                 >
                   WhatsApp directo
                 </Button>
                 <Button
                   variant="outline"
                   href={`tel:${telefonoOficina}`}
-                  icon={<Phone size={20} aria-hidden="true" />}
+                  icon={
+                    <Phone size={20} className="text-rojo" aria-hidden="true" />
+                  }
                 >
                   Llamar
                 </Button>
@@ -187,7 +208,7 @@ export default function FormularioSimple() {
             </form>
           </div>
 
-          <InfoOficina />
+          <InfoOficina variant="on-red" />
         </div>
       </Container>
     </section>

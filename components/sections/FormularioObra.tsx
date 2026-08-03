@@ -9,7 +9,9 @@ import Placeholder from "@/components/ui/Placeholder";
 import Field from "@/components/ui/form/Field";
 import TextInput from "@/components/ui/form/TextInput";
 import TextArea from "@/components/ui/form/TextArea";
-import RadioCards, { type RadioCardOption } from "@/components/ui/form/RadioCards";
+import RadioCards, {
+  type RadioCardOption,
+} from "@/components/ui/form/RadioCards";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface DatosObra {
@@ -59,8 +61,16 @@ const DATOS_INICIALES: DatosObra = {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const OPCIONES_TEJIDO: RadioCardOption[] = [
-  { value: "Símil ligustrina", label: "Símil ligustrina", image: <Placeholder aspect="1/1" /> },
-  { value: "Revestido en PVC", label: "Revestido en PVC", image: <Placeholder aspect="1/1" /> },
+  {
+    value: "Símil ligustrina",
+    label: "Símil ligustrina",
+    image: <Placeholder aspect="1/1" />,
+  },
+  {
+    value: "Revestido en PVC",
+    label: "Revestido en PVC",
+    image: <Placeholder aspect="1/1" />,
+  },
   {
     value: "Galvanizado romboidal",
     label: "Galvanizado romboidal",
@@ -74,9 +84,17 @@ const OPCIONES_POSTE: RadioCardOption[] = [
 ];
 
 const OPCIONES_MALLA: RadioCardOption[] = [
-  { value: 'Malla 1½"', label: 'Malla 1½"', image: <Placeholder aspect="1/1" /> },
+  {
+    value: 'Malla 1½"',
+    label: 'Malla 1½"',
+    image: <Placeholder aspect="1/1" />,
+  },
   { value: 'Malla 2"', label: 'Malla 2"', image: <Placeholder aspect="1/1" /> },
-  { value: 'Malla 2½"', label: 'Malla 2½"', image: <Placeholder aspect="1/1" /> },
+  {
+    value: 'Malla 2½"',
+    label: 'Malla 2½"',
+    image: <Placeholder aspect="1/1" />,
+  },
   { value: 'Malla 3"', label: 'Malla 3"', image: <Placeholder aspect="1/1" /> },
 ];
 
@@ -86,7 +104,10 @@ const OPCIONES_TERRENO: RadioCardOption[] = [
 ];
 
 const OPCIONES_TIPO_PORTON: RadioCardOption[] = [
-  { value: "Caño estructural - línea económica", label: "Caño estructural - línea económica" },
+  {
+    value: "Caño estructural - línea económica",
+    label: "Caño estructural - línea económica",
+  },
   { value: "Caño estructural reforzado", label: "Caño estructural reforzado" },
 ];
 
@@ -107,20 +128,26 @@ function validar(datos: DatosObra): ErroresObra {
   if (!datos.nombre.trim()) errores.nombre = "Ingresá tu nombre.";
   if (!datos.apellido.trim()) errores.apellido = "Ingresá tu apellido.";
   if (!datos.email.trim()) errores.email = "Ingresá tu email.";
-  else if (!EMAIL_REGEX.test(datos.email.trim())) errores.email = "Ingresá un email válido.";
-  if (!datos.direccionObra.trim()) errores.direccionObra = "Ingresá la dirección de la obra.";
+  else if (!EMAIL_REGEX.test(datos.email.trim()))
+    errores.email = "Ingresá un email válido.";
+  if (!datos.direccionObra.trim())
+    errores.direccionObra = "Ingresá la dirección de la obra.";
   if (!datos.localidad.trim()) errores.localidad = "Ingresá la localidad.";
   if (!datos.tejido) errores.tejido = "Elegí un tipo de tejido.";
   if (!datos.poste) errores.poste = "Elegí un tipo de poste.";
   if (!datos.malla) errores.malla = "Elegí un tipo de malla.";
   if (!datos.terreno) errores.terreno = "Elegí un tipo de terreno.";
-  if (!esNumeroValido(datos.frente)) errores.frente = "Ingresá el frente en metros.";
-  if (!esNumeroValido(datos.lateral)) errores.lateral = "Ingresá el lateral en metros.";
-  if (!esNumeroValido(datos.fondo)) errores.fondo = "Ingresá el fondo en metros.";
+  if (!esNumeroValido(datos.frente))
+    errores.frente = "Ingresá el frente en metros.";
+  if (!esNumeroValido(datos.lateral))
+    errores.lateral = "Ingresá el lateral en metros.";
+  if (!esNumeroValido(datos.fondo))
+    errores.fondo = "Ingresá el fondo en metros.";
 
   if (datos.incluyePorton) {
     if (!datos.tipoPorton) errores.tipoPorton = "Elegí un tipo de portón.";
-    if (!datos.ubicacionPorton) errores.ubicacionPorton = "Elegí la ubicación del portón.";
+    if (!datos.ubicacionPorton)
+      errores.ubicacionPorton = "Elegí la ubicación del portón.";
   }
 
   return errores;
@@ -151,7 +178,9 @@ function construirMensaje(datos: DatosObra): string {
 
   if (datos.incluyePorton) {
     lineas.push("");
-    lineas.push(`Portón: ${datos.tipoPorton} - Ubicación: ${datos.ubicacionPorton}`);
+    lineas.push(
+      `Portón: ${datos.tipoPorton} - Ubicación: ${datos.ubicacionPorton}`,
+    );
   }
 
   lineas.push("");
@@ -199,241 +228,305 @@ export default function FormularioObra() {
   return (
     <section id="presupuesto" className="bg-fondo-claro py-16 md:py-24">
       <Container>
-        <h2 className="font-display text-3xl font-semibold text-carbon md:text-4xl">
-          Solicitá tu presupuesto
-        </h2>
-        <p className="mt-3 font-sans text-gris-texto">
-          Son unos minutos, y con esos datos armamos un presupuesto cerrado, sin necesidad de
-          visitarte primero.
-        </p>
+        <div className="rounded-xl border border-carbon/10 border-t-4 border-t-rojo bg-white p-6 shadow-sm md:p-10">
+          <h2 className="font-display text-3xl font-semibold text-carbon md:text-4xl">
+            Solicitá tu <span className="text-rojo">presupuesto</span>
+          </h2>
+          <p className="mt-3 font-sans text-gris-texto">
+            Son unos minutos, y con esos datos armamos un presupuesto cerrado,
+            sin necesidad de visitarte primero.
+          </p>
 
-        <form onSubmit={handleEnviarWhatsApp} noValidate className="mt-8 flex flex-col gap-6">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Field label="Nombre" htmlFor="obra-nombre" required error={errores.nombre}>
-              <TextInput
-                id="obra-nombre"
-                invalid={!!errores.nombre}
-                value={datos.nombre}
-                onChange={(e) => set("nombre", e.target.value)}
-              />
-            </Field>
-            <Field label="Apellido" htmlFor="obra-apellido" required error={errores.apellido}>
-              <TextInput
-                id="obra-apellido"
-                invalid={!!errores.apellido}
-                value={datos.apellido}
-                onChange={(e) => set("apellido", e.target.value)}
-              />
-            </Field>
-          </div>
-
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Field label="Correo electrónico" htmlFor="obra-email" required error={errores.email}>
-              <TextInput
-                id="obra-email"
-                type="email"
-                invalid={!!errores.email}
-                value={datos.email}
-                onChange={(e) => set("email", e.target.value)}
-              />
-            </Field>
-            <Field label="Teléfono" htmlFor="obra-telefono">
-              <TextInput
-                id="obra-telefono"
-                type="tel"
-                value={datos.telefono}
-                onChange={(e) => set("telefono", e.target.value)}
-              />
-            </Field>
-          </div>
-
-          <Field
-            label="Dirección de obra"
-            htmlFor="obra-direccion"
-            required
-            error={errores.direccionObra}
+          <form
+            onSubmit={handleEnviarWhatsApp}
+            noValidate
+            className="mt-8 flex flex-col gap-6"
           >
-            <TextInput
-              id="obra-direccion"
-              invalid={!!errores.direccionObra}
-              value={datos.direccionObra}
-              onChange={(e) => set("direccionObra", e.target.value)}
-            />
-          </Field>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <Field
+                label="Nombre"
+                htmlFor="obra-nombre"
+                required
+                error={errores.nombre}
+              >
+                <TextInput
+                  id="obra-nombre"
+                  invalid={!!errores.nombre}
+                  value={datos.nombre}
+                  onChange={(e) => set("nombre", e.target.value)}
+                />
+              </Field>
+              <Field
+                label="Apellido"
+                htmlFor="obra-apellido"
+                required
+                error={errores.apellido}
+              >
+                <TextInput
+                  id="obra-apellido"
+                  invalid={!!errores.apellido}
+                  value={datos.apellido}
+                  onChange={(e) => set("apellido", e.target.value)}
+                />
+              </Field>
+            </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <Field
+                label="Correo electrónico"
+                htmlFor="obra-email"
+                required
+                error={errores.email}
+              >
+                <TextInput
+                  id="obra-email"
+                  type="email"
+                  invalid={!!errores.email}
+                  value={datos.email}
+                  onChange={(e) => set("email", e.target.value)}
+                />
+              </Field>
+              <Field label="Teléfono" htmlFor="obra-telefono">
+                <TextInput
+                  id="obra-telefono"
+                  type="tel"
+                  value={datos.telefono}
+                  onChange={(e) => set("telefono", e.target.value)}
+                />
+              </Field>
+            </div>
+
             <Field
-              label="Localidad"
-              htmlFor="obra-localidad"
+              label="Dirección de obra"
+              htmlFor="obra-direccion"
               required
-              error={errores.localidad}
+              error={errores.direccionObra}
             >
               <TextInput
-                id="obra-localidad"
-                invalid={!!errores.localidad}
-                value={datos.localidad}
-                onChange={(e) => set("localidad", e.target.value)}
+                id="obra-direccion"
+                invalid={!!errores.direccionObra}
+                value={datos.direccionObra}
+                onChange={(e) => set("direccionObra", e.target.value)}
               />
             </Field>
-            <Field label="Código postal" htmlFor="obra-cp">
-              <TextInput
-                id="obra-cp"
-                value={datos.codigoPostal}
-                onChange={(e) => set("codigoPostal", e.target.value)}
-              />
-            </Field>
-          </div>
 
-          <Field label="Tipo de tejido" htmlFor="obra-tejido" required error={errores.tejido}>
-            <RadioCards
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <Field
+                label="Localidad"
+                htmlFor="obra-localidad"
+                required
+                error={errores.localidad}
+              >
+                <TextInput
+                  id="obra-localidad"
+                  invalid={!!errores.localidad}
+                  value={datos.localidad}
+                  onChange={(e) => set("localidad", e.target.value)}
+                />
+              </Field>
+              <Field label="Código postal" htmlFor="obra-cp">
+                <TextInput
+                  id="obra-cp"
+                  value={datos.codigoPostal}
+                  onChange={(e) => set("codigoPostal", e.target.value)}
+                />
+              </Field>
+            </div>
+
+            <Field
               label="Tipo de tejido"
-              options={OPCIONES_TEJIDO}
-              value={datos.tejido}
-              onChange={(valor) => set("tejido", valor)}
-              columns={3}
-            />
-          </Field>
+              htmlFor="obra-tejido"
+              required
+              error={errores.tejido}
+            >
+              <RadioCards
+                label="Tipo de tejido"
+                options={OPCIONES_TEJIDO}
+                value={datos.tejido}
+                onChange={(valor) => set("tejido", valor)}
+                columns={3}
+              />
+            </Field>
 
-          <Field label="Tipo de poste" htmlFor="obra-poste" required error={errores.poste}>
-            <RadioCards
+            <Field
               label="Tipo de poste"
-              options={OPCIONES_POSTE}
-              value={datos.poste}
-              onChange={(valor) => set("poste", valor)}
-              columns={2}
-            />
-          </Field>
+              htmlFor="obra-poste"
+              required
+              error={errores.poste}
+            >
+              <RadioCards
+                label="Tipo de poste"
+                options={OPCIONES_POSTE}
+                value={datos.poste}
+                onChange={(valor) => set("poste", valor)}
+                columns={2}
+              />
+            </Field>
 
-          <Field label="Tipo de malla" htmlFor="obra-malla" required error={errores.malla}>
-            <RadioCards
+            <Field
               label="Tipo de malla"
-              options={OPCIONES_MALLA}
-              value={datos.malla}
-              onChange={(valor) => set("malla", valor)}
-              columns={4}
-            />
-          </Field>
+              htmlFor="obra-malla"
+              required
+              error={errores.malla}
+            >
+              <RadioCards
+                label="Tipo de malla"
+                options={OPCIONES_MALLA}
+                value={datos.malla}
+                onChange={(valor) => set("malla", valor)}
+                columns={4}
+              />
+            </Field>
 
-          <Field label="Tipo de terreno" htmlFor="obra-terreno" required error={errores.terreno}>
-            <RadioCards
+            <Field
               label="Tipo de terreno"
-              options={OPCIONES_TERRENO}
-              value={datos.terreno}
-              onChange={(valor) => set("terreno", valor)}
-              columns={2}
-            />
-          </Field>
-
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <Field label="Frente (m)" htmlFor="obra-frente" required error={errores.frente}>
-              <TextInput
-                id="obra-frente"
-                type="number"
-                min="0"
-                step="0.01"
-                inputMode="decimal"
-                invalid={!!errores.frente}
-                value={datos.frente}
-                onChange={(e) => set("frente", e.target.value)}
+              htmlFor="obra-terreno"
+              required
+              error={errores.terreno}
+            >
+              <RadioCards
+                label="Tipo de terreno"
+                options={OPCIONES_TERRENO}
+                value={datos.terreno}
+                onChange={(valor) => set("terreno", valor)}
+                columns={2}
               />
             </Field>
-            <Field label="Lateral (m)" htmlFor="obra-lateral" required error={errores.lateral}>
-              <TextInput
-                id="obra-lateral"
-                type="number"
-                min="0"
-                step="0.01"
-                inputMode="decimal"
-                invalid={!!errores.lateral}
-                value={datos.lateral}
-                onChange={(e) => set("lateral", e.target.value)}
-              />
-            </Field>
-            <Field label="Fondo (m)" htmlFor="obra-fondo" required error={errores.fondo}>
-              <TextInput
-                id="obra-fondo"
-                type="number"
-                min="0"
-                step="0.01"
-                inputMode="decimal"
-                invalid={!!errores.fondo}
-                value={datos.fondo}
-                onChange={(e) => set("fondo", e.target.value)}
-              />
-            </Field>
-          </div>
 
-          <label htmlFor="obra-incluye-porton" className="flex items-center gap-3 font-sans text-carbon">
-            <input
-              id="obra-incluye-porton"
-              type="checkbox"
-              className="size-5 accent-rojo"
-              checked={datos.incluyePorton}
-              onChange={(e) => set("incluyePorton", e.target.checked)}
-            />
-            ¿Incluye portón?
-          </label>
-
-          {datos.incluyePorton && (
-            <>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
               <Field
-                label="Tipo de portón"
-                htmlFor="obra-tipo-porton"
+                label="Frente (m)"
+                htmlFor="obra-frente"
                 required
-                error={errores.tipoPorton}
+                error={errores.frente}
               >
-                <RadioCards
+                <TextInput
+                  id="obra-frente"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputMode="decimal"
+                  invalid={!!errores.frente}
+                  value={datos.frente}
+                  onChange={(e) => set("frente", e.target.value)}
+                />
+              </Field>
+              <Field
+                label="Lateral (m)"
+                htmlFor="obra-lateral"
+                required
+                error={errores.lateral}
+              >
+                <TextInput
+                  id="obra-lateral"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputMode="decimal"
+                  invalid={!!errores.lateral}
+                  value={datos.lateral}
+                  onChange={(e) => set("lateral", e.target.value)}
+                />
+              </Field>
+              <Field
+                label="Fondo (m)"
+                htmlFor="obra-fondo"
+                required
+                error={errores.fondo}
+              >
+                <TextInput
+                  id="obra-fondo"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputMode="decimal"
+                  invalid={!!errores.fondo}
+                  value={datos.fondo}
+                  onChange={(e) => set("fondo", e.target.value)}
+                />
+              </Field>
+            </div>
+
+            <label
+              htmlFor="obra-incluye-porton"
+              className="flex items-center gap-3 font-sans text-carbon"
+            >
+              <input
+                id="obra-incluye-porton"
+                type="checkbox"
+                className="size-5 accent-rojo"
+                checked={datos.incluyePorton}
+                onChange={(e) => set("incluyePorton", e.target.checked)}
+              />
+              ¿Incluye portón?
+            </label>
+
+            {datos.incluyePorton && (
+              <>
+                <Field
                   label="Tipo de portón"
-                  options={OPCIONES_TIPO_PORTON}
-                  value={datos.tipoPorton}
-                  onChange={(valor) => set("tipoPorton", valor)}
-                  columns={2}
-                />
-              </Field>
+                  htmlFor="obra-tipo-porton"
+                  required
+                  error={errores.tipoPorton}
+                >
+                  <RadioCards
+                    label="Tipo de portón"
+                    options={OPCIONES_TIPO_PORTON}
+                    value={datos.tipoPorton}
+                    onChange={(valor) => set("tipoPorton", valor)}
+                    columns={2}
+                  />
+                </Field>
 
-              <Field
-                label="Ubicación del portón"
-                htmlFor="obra-ubicacion-porton"
-                required
-                error={errores.ubicacionPorton}
-              >
-                <RadioCards
+                <Field
                   label="Ubicación del portón"
-                  options={OPCIONES_UBICACION_PORTON}
-                  value={datos.ubicacionPorton}
-                  onChange={(valor) => set("ubicacionPorton", valor)}
-                  columns={3}
-                />
-              </Field>
-            </>
-          )}
+                  htmlFor="obra-ubicacion-porton"
+                  required
+                  error={errores.ubicacionPorton}
+                >
+                  <RadioCards
+                    label="Ubicación del portón"
+                    options={OPCIONES_UBICACION_PORTON}
+                    value={datos.ubicacionPorton}
+                    onChange={(valor) => set("ubicacionPorton", valor)}
+                    columns={3}
+                  />
+                </Field>
+              </>
+            )}
 
-          <Field label="Observaciones (opcional)" htmlFor="obra-observaciones">
-            <TextArea
-              id="obra-observaciones"
-              value={datos.observaciones}
-              onChange={(e) => set("observaciones", e.target.value)}
-            />
-          </Field>
+            <Field
+              label="Observaciones (opcional)"
+              htmlFor="obra-observaciones"
+            >
+              <TextArea
+                id="obra-observaciones"
+                value={datos.observaciones}
+                onChange={(e) => set("observaciones", e.target.value)}
+              />
+            </Field>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button
-              type="submit"
-              variant="primary"
-              icon={<MessageCircle size={20} aria-hidden="true" />}
-            >
-              Enviar por WhatsApp
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handleEnviarEmail}
-              icon={<Mail size={20} aria-hidden="true" />}
-            >
-              Enviar por email
-            </Button>
-          </div>
-        </form>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button
+                type="submit"
+                variant="primary"
+                icon={<MessageCircle size={20} aria-hidden="true" />}
+              >
+                Enviar por WhatsApp
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleEnviarEmail}
+                icon={
+                  <Mail size={20} className="text-rojo" aria-hidden="true" />
+                }
+              >
+                Enviar por email
+              </Button>
+            </div>
+          </form>
+        </div>
       </Container>
     </section>
   );

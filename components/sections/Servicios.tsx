@@ -30,13 +30,13 @@ export default function Servicios() {
   const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
 
   return (
-    <section id="servicios" className="bg-white py-16 md:py-24">
+    <section id="servicios" className="bg-rojo py-16 md:py-24">
       <Container>
         <FadeUp>
-          <h2 className="text-center font-display text-3xl font-semibold text-carbon md:text-4xl">
+          <h2 className="text-center font-display text-3xl font-semibold text-white md:text-4xl">
             Nuestros servicios
           </h2>
-          <p className="mt-3 text-center font-sans text-gris-texto">
+          <p className="mt-3 text-center font-sans text-white/80">
             Soluciones completas para tu proyecto de cercado y seguridad.
           </p>
         </FadeUp>
@@ -54,16 +54,16 @@ export default function Servicios() {
         </div>
 
         <FadeUp delay={0.1} className="mt-10 flex flex-col items-center gap-3">
-          <p className="font-sans text-gris-texto">¿No sabés qué necesitás? Escribinos</p>
+          <p className="font-sans text-white/90">¿No sabés qué necesitás? Escribinos</p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button
-              variant="outline"
+              variant="white"
               href={whatsappVentas}
               icon={<MessageCircle size={20} aria-hidden="true" />}
             >
               Escribinos por WhatsApp
             </Button>
-            <Button variant="outline" href="/obras">
+            <Button variant="outline-white" href="/obras">
               Ver nuestras obras
             </Button>
           </div>

@@ -1,37 +1,67 @@
 import type { ReactNode } from "react";
-import { Building2, Check, Home, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { MessageCircle } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Placeholder from "@/components/ui/Placeholder";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
+// Set these once the photos are ready — see README notes for how to add them.
+const IMAGEN_CASA: string | undefined = undefined;
+const IMAGEN_OBRA: string | undefined = undefined;
+
 interface BifurcacionCardProps {
-  icon: ReactNode;
+  imagen?: string;
+  imagenAlt: string;
   eyebrow: string;
   title: string;
-  subtitle: string;
-  bullets: string[];
+  description: string;
   children: ReactNode;
 }
 
-function BifurcacionCard({ icon, eyebrow, title, subtitle, bullets, children }: BifurcacionCardProps) {
+function BifurcacionCard({
+  imagen,
+  imagenAlt,
+  eyebrow,
+  title,
+  description,
+  children,
+}: BifurcacionCardProps) {
   return (
-    <div className="flex flex-col rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo p-6">
-      <div className="text-rojo">{icon}</div>
-      <p className="mt-4 font-sans text-xs font-medium tracking-wide text-rojo uppercase">
-        {eyebrow}
-      </p>
-      <h3 className="mt-1 font-display text-xl font-semibold text-carbon">{title}</h3>
-      <p className="mt-1 font-sans text-gris-texto">{subtitle}</p>
-      <ul className="mt-4 flex flex-col gap-2">
-        {bullets.map((bullet) => (
-          <li key={bullet} className="flex items-center gap-2 font-sans text-carbon">
-            <Check size={18} className="shrink-0 text-rojo" aria-hidden="true" />
-            {bullet}
-          </li>
-        ))}
-      </ul>
-      <div className="mt-6">{children}</div>
+    <div className="relative flex h-full min-h-[340px] flex-col justify-end overflow-hidden rounded-xl bg-carbon">
+      {imagen ? (
+        <Image
+          src={imagen}
+          alt={imagenAlt}
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+      ) : (
+        <Placeholder
+          tone="on-dark"
+          aspect="full"
+          label={imagenAlt}
+          className="absolute inset-0 h-full w-full"
+        />
+      )}
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+      />
+
+      <div className="relative z-10 flex flex-col gap-3 p-6 md:p-8">
+        <p className="font-sans text-xs font-medium tracking-wide text-red-300 uppercase">
+          {eyebrow}
+        </p>
+        <div>
+          <h3 className="font-display text-xl font-semibold text-white md:text-2xl">{title}</h3>
+          <p className="mt-2 font-sans text-sm text-white/85 md:text-base">{description}</p>
+        </div>
+        <div className="mt-1">{children}</div>
+      </div>
     </div>
   );
 }
@@ -44,44 +74,43 @@ export default function Bifurcacion() {
       <Container>
         <FadeUp>
           <h2 className="text-center font-display text-3xl font-semibold text-carbon md:text-4xl">
-            ¿Qué tipo de proyecto tenés?
+            ¿Qué necesitás resolver?
           </h2>
         </FadeUp>
 
-        <FadeUp delay={0.1} className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <BifurcacionCard
-            icon={<Building2 size={32} aria-hidden="true" />}
-            eyebrow="Empresas y campos"
-            title="Para tu obra o empresa"
-            subtitle="Contanos medidas y terreno: con eso armamos presupuesto cerrado, sin necesidad de visita previa."
-            bullets={[
-              "Factura A",
-              "Presupuesto detallado",
-              "Asesoramiento técnico",
-              "Cercos de piscina y concertina",
-            ]}
-          >
-            <Button variant="primary" href="/contacto#presupuesto">
-              Solicitar presupuesto
-            </Button>
-          </BifurcacionCard>
-
-          <BifurcacionCard
-            icon={<Home size={32} aria-hidden="true" />}
-            eyebrow="Casas y terrenos"
-            title="Para tu casa"
-            subtitle="Resolvé rápido, hablá con nosotros"
-            bullets={["Envío en Salta", "Te asesoramos", "Instalación disponible"]}
-          >
-            <Button
-              variant="whatsapp"
-              href={whatsappVentas}
-              icon={<MessageCircle size={20} aria-hidden="true" />}
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <FadeUp delay={0.1}>
+            <BifurcacionCard
+              imagen={IMAGEN_CASA}
+              imagenAlt="Cerco perimetral instalado en una casa"
+              eyebrow="Para tu casa"
+              title="Seguridad rápida para tu hogar"
+              description="Cercos, portones y rejas. Te asesoramos y coordinamos la instalación."
             >
-              Consultar por WhatsApp
-            </Button>
-          </BifurcacionCard>
-        </FadeUp>
+              <Button
+                variant="whatsapp"
+                href={whatsappVentas}
+                icon={<MessageCircle size={20} aria-hidden="true" />}
+              >
+                Consultar por WhatsApp
+              </Button>
+            </BifurcacionCard>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <BifurcacionCard
+              imagen={IMAGEN_OBRA}
+              imagenAlt="Alambrado perimetral de un predio industrial"
+              eyebrow="Para tu obra o empresa"
+              title="Cerrá un predio o una obra grande"
+              description="Factura A, grandes metrajes y presupuesto formal con medidas."
+            >
+              <Button variant="primary" href="/contacto">
+                Solicitar presupuesto
+              </Button>
+            </BifurcacionCard>
+          </FadeUp>
+        </div>
       </Container>
     </section>
   );

@@ -74,7 +74,7 @@ export default function Footer() {
       <Container className="py-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Logo className="text-white" />
+            <Logo variant="white" />
             <p className="mt-4 font-sans text-sm text-white/70">
               Cercos, portones y seguridad perimetral en Salta.
             </p>

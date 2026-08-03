@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-white py-12 md:py-16">
+      <section className="bg-rojo py-12 md:py-16">
         <Container>
           <FadeUp>
-            <h1 className="font-display text-4xl font-semibold text-carbon md:text-5xl">
+            <h1 className="font-display text-4xl font-semibold text-white md:text-5xl">
               Contacto
             </h1>
-            <p className="mt-3 font-sans text-gris-texto">
+            <p className="mt-3 font-sans text-white/85">
               Contanos tu proyecto y te respondemos a la brevedad.
             </p>
           </FadeUp>
