@@ -12,12 +12,20 @@ const FILTROS: Filtro[] = ["Todas", ...CATEGORIAS];
 
 function ObraCard({ titulo, categoria, src }: Obra) {
   return (
-    <div className="overflow-hidden rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo bg-white">
-      <div className="relative aspect-[4/3]">
+    <div className="group overflow-hidden rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo bg-white transition-all duration-200 ease-out motion-safe:hover:-translate-y-1 hover:shadow-lg">
+      <div className="relative aspect-[4/3] overflow-hidden">
         {src ? (
-          <Image src={src} alt={titulo} fill className="object-cover" />
+          <Image
+            src={src}
+            alt={titulo}
+            fill
+            className="object-cover transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-105"
+          />
         ) : (
-          <Placeholder aspect="4/3" className="h-full w-full !rounded-b-none" />
+          <Placeholder
+            aspect="4/3"
+            className="h-full w-full !rounded-b-none transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-105"
+          />
         )}
       </div>
       <div className="p-5">
@@ -46,7 +54,7 @@ export default function GaleriaObras() {
               type="button"
               aria-pressed={activo}
               onClick={() => setFiltro(item)}
-              className={`rounded-full px-5 py-2 font-sans text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo ${
+              className={`cursor-pointer rounded-full px-5 py-2 font-sans text-sm font-medium transition-colors duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo ${
                 activo
                   ? "bg-rojo text-white"
                   : "bg-fondo-claro text-carbon hover:bg-carbon/10"

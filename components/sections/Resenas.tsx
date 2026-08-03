@@ -45,7 +45,7 @@ function Estrellas({ cantidad }: { cantidad: number }) {
 
 function ResenaCard({ autor, estrellas, texto }: Resena) {
   return (
-    <div className="flex flex-col rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo bg-white p-6">
+    <div className="flex flex-col rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo bg-white p-6 transition-all duration-200 ease-out motion-safe:hover:-translate-y-1 hover:shadow-lg">
       <Estrellas cantidad={estrellas} />
       <p className="mt-4 flex-1 font-sans text-gris-texto">&ldquo;{texto}&rdquo;</p>
       <p className="mt-4 font-display text-sm font-semibold text-carbon">{autor}</p>
@@ -53,8 +53,12 @@ function ResenaCard({ autor, estrellas, texto }: Resena) {
   );
 }
 
+// Fallback so the CTA never disappears if NEXT_PUBLIC_GOOGLE_REVIEWS_URL isn't set yet.
+const GOOGLE_REVIEWS_FALLBACK_URL = "https://www.google.com/search?q=Alambrar+SRL+Salta+opiniones";
+
 export default function Resenas() {
-  const googleReviewsUrl = process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL || "";
+  const googleReviewsUrl =
+    (process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL || "").trim() || GOOGLE_REVIEWS_FALLBACK_URL;
 
   if (RESENAS.length === 0) return null;
 
@@ -75,18 +79,16 @@ export default function Resenas() {
           ))}
         </div>
 
-        {googleReviewsUrl && (
-          <FadeUp delay={0.2} className="mt-10 flex justify-center">
-            <Button
-              variant="primary"
-              href={googleReviewsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver todas nuestras reseñas en Google
-            </Button>
-          </FadeUp>
-        )}
+        <FadeUp delay={0.2} className="mt-10 flex justify-center">
+          <Button
+            variant="primary"
+            href={googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver todas nuestras reseñas en Google
+          </Button>
+        </FadeUp>
       </Container>
     </section>
   );

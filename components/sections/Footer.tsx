@@ -18,7 +18,7 @@ function ContactLink({ href, icon: Icon, label, external }: ContactLinkProps) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="flex items-center gap-2 text-white/80 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      className="flex items-center gap-2 text-white/80 transition-colors duration-150 ease-out hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
     >
       <Icon size={16} className="shrink-0" aria-hidden="true" />
       {label}
@@ -109,7 +109,7 @@ export default function Footer() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 underline transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="text-white/80 underline transition-colors duration-150 ease-out hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   Cómo llegar
                 </a>
@@ -128,7 +128,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram de Alambrar SRL"
-                  className="text-white/80 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="text-white/80 transition-colors duration-150 ease-out hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <InstagramIcon size={22} aria-hidden="true" />
                 </a>
@@ -139,7 +139,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook de Alambrar SRL"
-                  className="text-white/80 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="text-white/80 transition-colors duration-150 ease-out hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <FacebookIcon size={22} aria-hidden="true" />
                 </a>

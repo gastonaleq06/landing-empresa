@@ -34,7 +34,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-sans font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-3 font-sans font-medium transition-all duration-200 ease-out motion-safe:hover:-translate-y-0.5 hover:shadow-md motion-safe:active:translate-y-0 active:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
 export default function Button({
   variant = "primary",

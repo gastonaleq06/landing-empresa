@@ -14,7 +14,7 @@ const links = [
 ];
 
 const linkStyles =
-  "rounded-sm text-rojo transition-colors hover:text-rojo-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo";
+  "rounded-sm text-rojo transition-colors duration-150 ease-out hover:text-rojo-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function Navbar() {
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
-            className="rounded-sm p-2 text-rojo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo md:hidden"
+            className="cursor-pointer rounded-sm p-2 text-rojo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo md:hidden"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

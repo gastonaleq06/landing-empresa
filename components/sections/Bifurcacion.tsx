@@ -29,27 +29,31 @@ function BifurcacionCard({
   children,
 }: BifurcacionCardProps) {
   return (
-    <div className="relative flex h-full min-h-[340px] flex-col justify-end overflow-hidden rounded-xl bg-carbon">
+    <div className="group relative flex h-full min-h-[340px] flex-col justify-end overflow-hidden rounded-xl bg-carbon transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-lg">
       {imagen ? (
         <Image
           src={imagen}
           alt={imagenAlt}
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-105"
         />
       ) : (
         <Placeholder
           tone="on-dark"
           aspect="full"
           label={imagenAlt}
-          className="absolute inset-0 h-full w-full"
+          className="absolute inset-0 h-full w-full transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-105"
         />
       )}
 
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-black/0 transition-colors duration-300 ease-out group-hover:bg-black/15"
       />
 
       <div className="relative z-10 flex flex-col gap-3 p-6 md:p-8">

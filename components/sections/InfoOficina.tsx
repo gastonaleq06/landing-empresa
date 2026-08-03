@@ -130,7 +130,7 @@ export default function InfoOficina({ variant = "default" }: InfoOficinaProps) {
               href={mapsLinkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 font-sans text-sm font-medium text-rojo transition-colors hover:text-rojo-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo"
+              className="flex items-center gap-2 font-sans text-sm font-medium text-rojo transition-colors duration-150 ease-out hover:text-rojo-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rojo"
             >
               Abrir en Google Maps
               <ExternalLink size={16} aria-hidden="true" />
