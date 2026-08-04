@@ -11,6 +11,7 @@ const HERO_IMAGE: string | undefined = undefined;
 const PRODUCTOS = ["postes", "cercos perimetrales", "alambrados"];
 
 const garantias = [
+  "Más de 15 años de trayectoria",
   "Fabricación propia",
   "Instalación profesional",
   "Asesoramiento sin cargo",

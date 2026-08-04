@@ -68,6 +68,18 @@ export default function Servicios() {
             </Button>
           </div>
         </FadeUp>
+
+        <FadeUp
+          delay={0.15}
+          className="mt-12 flex flex-col items-center gap-3 border-t border-white/20 pt-10 text-center"
+        >
+          <p className="font-sans text-white">
+            También vendemos los materiales por mayor y menor, con stock permanente.
+          </p>
+          <Button variant="outline-white" href="/materiales">
+            Ver materiales
+          </Button>
+        </FadeUp>
       </Container>
     </section>
   );

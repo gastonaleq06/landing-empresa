@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   ShieldCheck,
   KeyRound,
-  Clock,
+  Package,
   MessageCircleQuestion,
   Factory,
   FileText,
@@ -23,30 +23,32 @@ type Feature = {
 const FEATURES: Feature[] = [
   {
     icon: <ShieldCheck size={22} aria-hidden="true" />,
-    titulo: "Trabajo que queda bien",
-    descripcion: "Cada cerco lo hacemos para que dure: bien tensado, bien instalado, sin atajos.",
+    titulo: "Sistema antirrobo reforzado",
+    descripcion:
+      "Planchuelas soldadas punto por punto en cada poste del tejido, para que no se pueda desprender ni forzar.",
   },
   {
     icon: <KeyRound size={22} aria-hidden="true" />,
-    titulo: "No te dejamos a mitad de camino",
+    titulo: "La clave está en la base",
     descripcion:
-      "Nos encargamos de todo, de la medición a la instalación final. Un solo responsable.",
+      "Cada cerco lleva cordón de hormigón enterrado, no solo los postes: por eso no se mueve ni se hunde.",
   },
   {
-    icon: <Clock size={22} aria-hidden="true" />,
-    titulo: "Cumplimos los tiempos",
-    descripcion: "Te damos un plazo real y lo respetamos. Sabés cuándo empezamos y cuándo terminamos.",
+    icon: <Package size={22} aria-hidden="true" />,
+    titulo: "También vendemos los materiales",
+    descripcion:
+      "Tejido romboidal, postes de quebracho, púas, concertina y accesorios: por mayor y menor, con stock permanente.",
   },
   {
     icon: <MessageCircleQuestion size={22} aria-hidden="true" />,
-    titulo: "Te ayudamos a decidir",
+    titulo: "¿Cuánto dura un poste de quebracho?",
     descripcion:
-      "¿No sabés qué cerco necesitás? Te asesoramos según tu terreno, tu uso y tu presupuesto.",
+      "Usamos quebracho colorado, con una vida útil declarada de más de 30 años enterrado.",
   },
   {
     icon: <Factory size={22} aria-hidden="true" />,
     titulo: "Fabricación propia",
-    descripcion: "Producimos nuestro propio tejido: calidad y precio directo de fábrica en Salta.",
+    descripcion: "Producimos nuestro propio tejido romboidal: calidad y precio directo de fábrica en Salta.",
   },
   {
     icon: <FileText size={22} aria-hidden="true" />,

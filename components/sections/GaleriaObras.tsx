@@ -10,7 +10,7 @@ type Filtro = "Todas" | CategoriaObra;
 
 const FILTROS: Filtro[] = ["Todas", ...CATEGORIAS];
 
-function ObraCard({ titulo, categoria, src }: Obra) {
+function ObraCard({ titulo, categoria, ubicacion, specs, src }: Obra) {
   return (
     <div className="group overflow-hidden rounded-xl border-[0.5px] border-carbon/20 border-t-[3px] border-t-rojo bg-white transition-all duration-200 ease-out motion-safe:hover:-translate-y-1 hover:shadow-lg">
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -19,6 +19,7 @@ function ObraCard({ titulo, categoria, src }: Obra) {
             src={src}
             alt={titulo}
             fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-105"
           />
         ) : (
@@ -31,8 +32,21 @@ function ObraCard({ titulo, categoria, src }: Obra) {
       <div className="p-5">
         <p className="font-sans text-xs font-medium tracking-wide text-gris-texto uppercase">
           {categoria}
+          {ubicacion ? ` · ${ubicacion}` : ""}
         </p>
         <h3 className="mt-1 font-display text-lg font-semibold text-carbon">{titulo}</h3>
+        {specs && specs.length > 0 && (
+          <ul className="mt-3 flex flex-col gap-1 font-sans text-sm text-gris-texto">
+            {specs.map((spec) => (
+              <li key={spec} className="flex gap-2">
+                <span aria-hidden="true" className="text-rojo">
+                  •
+                </span>
+                {spec}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

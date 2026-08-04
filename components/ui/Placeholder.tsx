@@ -8,6 +8,13 @@ const aspectClasses: Record<Aspect, string> = {
   full: "h-full",
 };
 
+type Shape = "rect" | "circle";
+
+const shapeClasses: Record<Shape, string> = {
+  rect: "rounded-xl",
+  circle: "rounded-full",
+};
+
 type Tone = "default" | "on-dark" | "plain";
 
 const toneClasses: Record<Tone, { box: string; text: string }> = {
@@ -26,6 +33,7 @@ interface PlaceholderProps {
   label?: string;
   aspect?: Aspect;
   tone?: Tone;
+  shape?: Shape;
   className?: string;
 }
 
@@ -33,13 +41,14 @@ export default function Placeholder({
   label,
   aspect = "4/3",
   tone = "default",
+  shape = "rect",
   className = "",
 }: PlaceholderProps) {
   const { box, text } = toneClasses[tone];
 
   return (
     <div
-      className={`flex ${aspectClasses[aspect]} flex-col items-center justify-center gap-2 rounded-xl p-4 ${box} ${className}`}
+      className={`flex ${aspectClasses[aspect]} ${shapeClasses[shape]} flex-col items-center justify-center gap-2 p-4 ${box} ${className}`}
     >
       <ImageIcon className={text} size={32} aria-hidden="true" />
       {label && <span className={`text-center font-sans text-sm ${text}`}>{label}</span>}

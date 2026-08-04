@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
+import LocalBusinessJsonLd from "@/components/seo/LocalBusinessJsonLd";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} ${inter.variable}`}>
       <body className="bg-white text-carbon font-sans antialiased">
+        <LocalBusinessJsonLd />
         <Navbar />
         {children}
         <Footer />
