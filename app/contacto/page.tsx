@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-rojo-textura py-12 md:py-16">
+      <section className="bg-rojo-textura pt-24 pb-12 md:pb-16">
         <Container>
           <FadeUp>
             <h1 className="font-display text-4xl font-semibold text-white md:text-5xl">
@@ -26,10 +26,10 @@ export default function ContactoPage() {
       </section>
 
       <FadeUp>
-        <FormularioObra />
+        <FormularioSimple />
       </FadeUp>
       <FadeUp delay={0.1}>
-        <FormularioSimple />
+        <FormularioObra />
       </FadeUp>
     </>
   );

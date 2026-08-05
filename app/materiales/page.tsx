@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function MaterialesPage() {
   return (
     <>
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white pt-24 pb-16 md:pb-24">
         <Container>
           <FadeUp className="text-center">
             <p className="font-sans text-sm font-medium tracking-widest text-rojo uppercase">
