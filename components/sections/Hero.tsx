@@ -57,10 +57,10 @@ export default function Hero() {
               priority
               className="h-[clamp(76px,9vw,120px)] w-[clamp(76px,9vw,120px)]"
             />
-            <p className="mt-2 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-semibold tracking-widest whitespace-nowrap text-white">
+            <p className="mt-2 font-display text-[clamp(1.8rem,4.05vw,2.925rem)] font-bold tracking-[0.18em] whitespace-nowrap pl-[0.18em] text-white">
               ALAMBRAR
             </p>
-            <p className="mt-1 font-display text-[clamp(13px,1.6vw,18px)] font-medium tracking-[0.4em] text-white/90">
+            <p className="mt-1 font-display text-[clamp(13px,1.6vw,18px)] font-bold tracking-[0.38em] pl-[0.38em] text-white/90">
               ALAMBRES TEJIDOS
             </p>
           </div>

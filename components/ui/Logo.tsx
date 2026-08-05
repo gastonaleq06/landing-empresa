@@ -37,12 +37,12 @@ export default function Logo({ className = "", variant = "rojo" }: LogoProps) {
       />
       <span className="flex flex-col justify-center">
         <span
-          className={`font-display text-lg leading-tight font-semibold tracking-wide uppercase ${styles.title}`}
+          className={`font-display text-lg leading-tight font-bold tracking-[0.18em] uppercase ${styles.title}`}
         >
           Alambrar
         </span>
         <span
-          className={`mt-0.5 hidden text-[10px] leading-none font-medium tracking-widest uppercase sm:block ${styles.subtitle}`}
+          className={`font-display mt-0.5 hidden text-[10px] leading-none font-bold tracking-[0.38em] uppercase sm:block ${styles.subtitle}`}
         >
           Alambres tejidos
         </span>

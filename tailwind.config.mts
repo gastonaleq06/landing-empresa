@@ -16,7 +16,7 @@ const config: Config = {
         whatsapp: "#25D366",
       },
       fontFamily: {
-        display: ["var(--font-poppins)"],
+        display: ["var(--font-archivo)"],
         sans: ["var(--font-inter)"],
       },
     },
