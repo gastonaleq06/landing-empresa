@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Logo from "@/components/ui/Logo";
@@ -27,23 +28,54 @@ const linkStyles =
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const sentinel = document.getElementById("hero-sentinel");
-    if (!sentinel) return;
+    let observer: IntersectionObserver | null = null;
+    let rafId: number | null = null;
+    let cancelled = false;
+    let attempts = 0;
+    const MAX_ATTEMPTS = 5;
 
-    // rootMargin corta la línea de disparo a la altura del header (64px = h-16)
-    // en vez de usar el viewport completo: si el Hero mide más que la pantalla,
-    // el centinela empieza fuera de vista y con el viewport crudo nunca
-    // "intersecta". El margen inferior gigante lo compensa.
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsScrolled(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "-64px 0px 9999px 0px" },
-    );
-    observer.observe(sentinel);
+    // El App Router no desmonta Navbar entre rutas, así que este efecto
+    // depende de pathname para reengancharse en cada navegación. El Hero
+    // de la ruta nueva puede tardar uno o dos frames en montar, así que
+    // reintentamos con rAF (rápido y acotado) en vez de un setTimeout largo.
+    const tryAttach = () => {
+      if (cancelled) return;
+      const sentinel = document.getElementById("hero-sentinel");
 
-    return () => observer.disconnect();
-  }, []);
+      if (sentinel) {
+        // rootMargin corta la línea de disparo a la altura del header
+        // (64px = h-16) en vez de usar el viewport completo: si el Hero
+        // mide más que la pantalla, el centinela empieza fuera de vista y
+        // con el viewport crudo nunca "intersecta". El margen inferior
+        // gigante lo compensa.
+        observer = new IntersectionObserver(
+          ([entry]) => setIsScrolled(!entry.isIntersecting),
+          { threshold: 0, rootMargin: "-64px 0px 9999px 0px" },
+        );
+        observer.observe(sentinel);
+        return;
+      }
+
+      if (attempts >= MAX_ATTEMPTS) {
+        setIsScrolled(true);
+        return;
+      }
+
+      attempts += 1;
+      rafId = requestAnimationFrame(tryAttach);
+    };
+
+    tryAttach();
+
+    return () => {
+      cancelled = true;
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      observer?.disconnect();
+    };
+  }, [pathname]);
 
   const solid = isScrolled || isOpen;
 
