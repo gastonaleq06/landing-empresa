@@ -24,7 +24,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className={`relative flex min-h-[80vh] items-center overflow-hidden ${
+      className={`relative flex min-h-[80vh] items-start overflow-hidden pt-[60px] sm:pt-[clamp(80px,12vh,140px)] ${
         HERO_IMAGE ? "bg-rojo" : "bg-rojo-textura"
       }`}
     >
@@ -46,7 +46,7 @@ export default function Hero() {
         }
       />
 
-      <Container className="relative z-10 py-16 md:py-24">
+      <Container className="relative z-10 pb-16 md:pb-24">
         <div className="mx-auto max-w-2xl text-center">
           <div className="flex flex-col items-center">
             <Image
@@ -55,24 +55,24 @@ export default function Hero() {
               width={160}
               height={160}
               priority
-              className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28"
+              className="h-[clamp(76px,9vw,120px)] w-[clamp(76px,9vw,120px)]"
             />
-            <p className="mt-4 font-display text-2xl font-semibold tracking-widest text-white sm:text-3xl md:text-4xl">
+            <p className="mt-2 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-semibold tracking-widest whitespace-nowrap text-white">
               ALAMBRAR
             </p>
-            <p className="mt-1 font-display text-[10px] font-medium tracking-[0.4em] text-white/90 sm:text-xs">
+            <p className="mt-1 font-display text-[clamp(13px,1.6vw,18px)] font-medium tracking-[0.4em] text-white/90">
               ALAMBRES TEJIDOS
             </p>
           </div>
 
-          <h1 className="mt-8 font-display text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+          <h1 className="mt-10 font-display text-[clamp(2rem,4.2vw,3.25rem)] font-semibold text-white">
             <span className="block">Fabricación, instalación y venta de</span>
             <RotatingWord words={PRODUCTOS} className="text-white" block />
             <span className="block">en Salta Capital</span>
           </h1>
-          <p className="mt-4 font-sans text-lg text-white/90">Presupuesto sin cargo.</p>
+          <p className="mt-3 font-sans text-lg text-white/90">Presupuesto sin cargo.</p>
 
-          <ul className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
+          <ul className="mt-6 flex flex-col items-center gap-3 text-sm sm:flex-row sm:justify-center sm:gap-8">
             {garantias.map((garantia) => (
               <li key={garantia} className="flex items-center gap-2 font-sans text-white">
                 <Check size={18} className="shrink-0 text-white" aria-hidden="true" />
@@ -81,7 +81,7 @@ export default function Hero() {
             ))}
           </ul>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               variant="whatsapp"
               href={whatsappVentas}
@@ -99,6 +99,8 @@ export default function Hero() {
           </div>
         </div>
       </Container>
+
+      <div id="hero-sentinel" aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px" />
     </section>
   );
 }
