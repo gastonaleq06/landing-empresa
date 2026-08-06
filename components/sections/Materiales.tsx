@@ -41,6 +41,8 @@ export default function Materiales() {
                 nombre={material.nombre}
                 descripcion={material.descripcion}
                 src={material.src}
+                fabricacionPropia={material.fabricacionPropia}
+                proximamente={material.proximamente}
               />
             </FadeUp>
           ))}
