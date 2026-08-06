@@ -65,7 +65,7 @@ export default function FormularioSimple() {
   const [datos, setDatos] = useState<DatosSimple>(DATOS_INICIALES);
   const [errores, setErrores] = useState<ErroresSimple>({});
 
-  const whatsappVentas = process.env.NEXT_PUBLIC_WHATSAPP_VENTAS || "";
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || "";
   const telefonoOficina = process.env.NEXT_PUBLIC_TELEFONO || "";
 
   const handleChange = (campo: keyof DatosSimple, valor: string) => {
@@ -79,7 +79,7 @@ export default function FormularioSimple() {
     if (Object.keys(nuevosErrores).length > 0) return;
 
     const mensaje = construirMensaje(datos);
-    const url = buildWhatsAppUrl(whatsappVentas, mensaje);
+    const url = buildWhatsAppUrl(whatsapp, mensaje);
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -184,7 +184,7 @@ export default function FormularioSimple() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button
                   variant="outline"
-                  href={buildWhatsAppUrl(whatsappVentas)}
+                  href={buildWhatsAppUrl(whatsapp)}
                   icon={
                     <MessageCircle
                       size={20}

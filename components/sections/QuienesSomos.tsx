@@ -12,12 +12,12 @@ export default function QuienesSomos() {
               Quiénes somos
             </h2>
             <p className="mt-4 font-sans text-lg leading-relaxed text-white md:text-xl md:leading-loose">
-              Fabricamos e instalamos cercos, alambrados, portones y concertina en Salta y la
-              zona. Trabajamos tanto con obras y empresas como con casas
-              particulares, con fabricación propia y un servicio llave en mano: nos encargamos
-              desde la medición del terreno hasta la instalación final. Nuestro objetivo es
-              simple: que tu cerco quede bien hecho, a tiempo y sin que tengas que preocuparte por
-              nada.
+              Somos pioneros en Salta: hace más de 30 años que fabricamos, instalamos y vendemos
+              materiales para cercos, alambrados, portones y concertina en la provincia.
+              Trabajamos para casas, countries, campos, empresas e instituciones, y también para
+              quien compra el material en el mostrador. Con fabricación propia en nuestra planta
+              de Cerrillos y un servicio llave en mano, nos encargamos desde la medición del
+              terreno hasta la instalación final.
             </p>
           </FadeUp>
           <FadeUp delay={0.1}>

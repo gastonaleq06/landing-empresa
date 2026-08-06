@@ -7,7 +7,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { MATERIALES } from "@/lib/materiales";
 
 export default function Materiales() {
-  const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
+  const whatsapp = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP ?? "");
   const direccion = process.env.NEXT_PUBLIC_DIRECCION || "";
 
   return (
@@ -49,7 +49,7 @@ export default function Materiales() {
         <FadeUp delay={0.1} className="mt-10 flex justify-center">
           <Button
             variant="outline-white"
-            href={whatsappVentas}
+            href={whatsapp}
             icon={<MessageCircle size={20} aria-hidden="true" />}
           >
             Consultar stock y precios

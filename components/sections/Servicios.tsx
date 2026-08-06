@@ -27,7 +27,7 @@ const SERVICIOS = [
 ];
 
 export default function Servicios() {
-  const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
+  const whatsapp = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP ?? "");
 
   return (
     <section id="servicios" className="bg-rojo-textura py-16 md:py-24">
@@ -58,7 +58,7 @@ export default function Servicios() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button
               variant="white"
-              href={whatsappVentas}
+              href={whatsapp}
               icon={<MessageCircle size={20} aria-hidden="true" />}
             >
               Escribinos por WhatsApp

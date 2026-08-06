@@ -48,7 +48,7 @@ const FEATURES: Feature[] = [
   {
     icon: <Factory size={22} aria-hidden="true" />,
     titulo: "Fabricación propia",
-    descripcion: "Producimos nuestro propio tejido romboidal: calidad y precio directo de fábrica en Salta.",
+    descripcion: "Producimos nuestro propio tejido romboidal: calidad y precio directo de nuestra fábrica en Cerrillos.",
   },
   {
     icon: <FileText size={22} aria-hidden="true" />,

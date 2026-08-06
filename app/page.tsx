@@ -1,5 +1,5 @@
 import Hero from "@/components/sections/Hero";
-import Bifurcacion from "@/components/sections/Bifurcacion";
+import TresPilares from "@/components/sections/TresPilares";
 import QuienesSomos from "@/components/sections/QuienesSomos";
 import Servicios from "@/components/sections/Servicios";
 import PorQueElegirnos from "@/components/sections/PorQueElegirnos";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Bifurcacion />
+      <TresPilares />
       <QuienesSomos />
       <Servicios />
       <PorQueElegirnos />

@@ -21,9 +21,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Alambrar SRL — Cercos, alambrados y portones en Salta",
+  title: "Alambrar SRL — Fábrica, cercos y materiales, Salta",
   description:
-    "Alambrar SRL: fabricación e instalación de cercos, alambrados, portones y concertina en Salta, Argentina.",
+    "Fabricamos, instalamos y vendemos materiales para cercos en Salta. Más de 30 años de trayectoria, con planta propia en Cerrillos.",
 };
 
 export default function RootLayout({

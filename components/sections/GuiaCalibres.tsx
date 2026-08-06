@@ -7,7 +7,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { CALIBRES } from "@/lib/calibres";
 
 export default function GuiaCalibres() {
-  const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
+  const whatsapp = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP ?? "");
 
   return (
     <section id="calibres" className="bg-rojo-textura py-16 md:py-24">
@@ -39,7 +39,7 @@ export default function GuiaCalibres() {
           </p>
           <Button
             variant="outline-white"
-            href={whatsappVentas}
+            href={whatsapp}
             icon={<MessageCircle size={20} aria-hidden="true" />}
           >
             Consultanos por WhatsApp

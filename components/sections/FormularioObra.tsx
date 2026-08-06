@@ -193,7 +193,7 @@ export default function FormularioObra() {
   const [datos, setDatos] = useState<DatosObra>(DATOS_INICIALES);
   const [errores, setErrores] = useState<ErroresObra>({});
 
-  const whatsappObras = process.env.NEXT_PUBLIC_WHATSAPP_OBRAS || "";
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || "";
   const email = process.env.NEXT_PUBLIC_EMAIL || "";
 
   const set = <K extends keyof DatosObra>(campo: K, valor: DatosObra[K]) => {
@@ -211,7 +211,7 @@ export default function FormularioObra() {
     event.preventDefault();
     const mensaje = validarYObtenerMensaje();
     if (!mensaje) return;
-    const url = buildWhatsAppUrl(whatsappObras, mensaje);
+    const url = buildWhatsAppUrl(whatsapp, mensaje);
     window.open(url, "_blank", "noopener,noreferrer");
   };
 

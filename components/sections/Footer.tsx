@@ -27,9 +27,7 @@ function ContactLink({ href, icon: Icon, label, external }: ContactLinkProps) {
 }
 
 export default function Footer() {
-  const whatsappVentasNum = process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "";
-  const whatsappObrasNum = process.env.NEXT_PUBLIC_WHATSAPP_OBRAS ?? "";
-  const whatsappAdminNum = process.env.NEXT_PUBLIC_WHATSAPP_ADMIN ?? "";
+  const whatsappNum = process.env.NEXT_PUBLIC_WHATSAPP ?? "";
   const telefono = process.env.NEXT_PUBLIC_TELEFONO ?? "";
   const email = process.env.NEXT_PUBLIC_EMAIL ?? "";
   const direccion = process.env.NEXT_PUBLIC_DIRECCION ?? "";
@@ -38,26 +36,10 @@ export default function Footer() {
   const facebookUrl = process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "";
 
   const contactos: ContactLinkProps[] = [];
-  if (whatsappVentasNum) {
+  if (whatsappNum) {
     contactos.push({
-      label: "WhatsApp Ventas",
-      href: buildWhatsAppUrl(whatsappVentasNum),
-      icon: MessageCircle,
-      external: true,
-    });
-  }
-  if (whatsappObrasNum) {
-    contactos.push({
-      label: "WhatsApp Obras",
-      href: buildWhatsAppUrl(whatsappObrasNum),
-      icon: MessageCircle,
-      external: true,
-    });
-  }
-  if (whatsappAdminNum) {
-    contactos.push({
-      label: "WhatsApp Administración",
-      href: buildWhatsAppUrl(whatsappAdminNum),
+      label: "WhatsApp",
+      href: buildWhatsAppUrl(whatsappNum),
       icon: MessageCircle,
       external: true,
     });

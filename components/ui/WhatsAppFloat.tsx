@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function WhatsAppFloat() {
-  const href = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
+  const href = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP ?? "");
 
   return (
     <a

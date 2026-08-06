@@ -11,14 +11,14 @@ const HERO_IMAGE: string | undefined = undefined;
 const PRODUCTOS = ["postes", "cercos perimetrales", "alambrados"];
 
 const garantias = [
-  "Más de 15 años de trayectoria",
-  "Fabricación propia",
-  "Instalación profesional",
+  "Más de 30 años de trayectoria",
+  "Pioneros en Salta",
+  "Fábrica propia en Cerrillos",
   "Asesoramiento sin cargo",
 ];
 
 export default function Hero() {
-  const whatsappVentas = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP_VENTAS ?? "");
+  const whatsapp = buildWhatsAppUrl(process.env.NEXT_PUBLIC_WHATSAPP ?? "");
   const telefono = process.env.NEXT_PUBLIC_TELEFONO ?? "";
 
   return (
@@ -84,7 +84,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               variant="whatsapp"
-              href={whatsappVentas}
+              href={whatsapp}
               icon={<MessageCircle size={20} aria-hidden="true" />}
             >
               Cotizar por WhatsApp
